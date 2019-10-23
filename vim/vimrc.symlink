@@ -1,4 +1,10 @@
 
+set undodir=$XDG_DATA_HOME/vim/undo
+set directory=$XDG_DATA_HOME/vim/swap
+set backupdir=$XDG_DATA_HOME/vim/backup
+set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+
 if empty(glob('~/.dotfiles/vim/autoload/plug.vim'))
   silent !curl -fLo ~/.dotfiles/vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -37,6 +43,40 @@ call plug#begin('~/.dotfiles/vim/plugins')
     set shiftround " round indent to a multiple of 'shiftwidth'
 " }}}
 
+" General Functionality {{{
+    " NERDTree {{{
+        Plug 'scrooloose/nerdtree'
+        Plug 'scrooloose/nerdcommenter'
+        Plug 'Xuyuanp/nerdtree-git-plugin'
+
+        " Add spaces after comment delimiters by default
+        let g:NERDSpaceDelims = 1
+        " Use compact syntax for prettified multi-line comments
+        let g:NERDCompactSexyComs = 1
+        " Align line-wise comment delimiters flush left instead of following code indentation
+        let g:NERDDefaultAlign = 'left'
+        " Set a language to use its alternate delimiters by default
+        let g:NERDAltDelims_java = 1
+        " Add your own custom formats or override the defaults
+        let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+        " Allow commenting and inverting empty lines (useful when commenting a region)
+        let g:NERDCommentEmptyLines = 1
+        " Enable trimming of trailing whitespace when uncommenting
+        let g:NERDTrimTrailingWhitespace = 1
+        " Enable NERDCommenterToggle to check all selected lines is commented or not
+        let g:NERDToggleCheckAllLines = 1
+        " Don't display these kinds of files
+        let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$', '__pycache__', '\.DS_Store' ]
+    " }}}
+
+    " FZF {{{
+        Plug '/usr/local/opt/fzf'
+        Plug 'junegunn/fzf.vim'
+        let g:fzf_history_dir = '~/.local/share/fzf-history'
+    " }}}
+" }}}
+
 " Language-Specific Configuration {{{
     " Asynchronous Lint Engine
     Plug 'w0rp/ale'
@@ -46,7 +86,7 @@ call plug#begin('~/.dotfiles/vim/plugins')
     " }}}
 
     " Python {{{
-        " Plug 'w0rp/ale'
+        Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
     " }}}
 
     Plug 'vim-airline/vim-airline'

@@ -112,6 +112,9 @@ export CFLAGS="-I/usr/local/opt/openssl/include"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.config/zsh/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="vim $ZDOTDIR/.zshrc"
+alias zshupdate="source $ZDOTDIR/.zshrc"
+alias zshenv="vim ~/.zshenv"
+alias zshalias="vim $ZDOTDIR/alias.zsh"
+alias ohmyzsh="vim $ZSH"
 

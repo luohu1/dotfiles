@@ -4,8 +4,25 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
-# history
-export HISTFILE="$XDG_DATA_HOME"/zsh/history
+# zsh
+export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+export HISTFILE="$XDG_CACHE_HOME"/zsh/history
+
+# vim
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+
+# python
+export PYTHONSTARTUP="$XDG_CACHE_HOME"/python-startup
+export PYTHON_EGG_CACHE="$XDG_CACHE_HOME"/python-eggs
+export PYLINTHOME="$XDG_CACHE_HOME"/pylint
+export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+
+# node
+export NVM_DIR="$XDG_DATA_HOME"/nvm
+export NVM_NODEJS_ORG_MIRROR="https://npm.taobao.org/mirrors/node"
+export NVM_IOJS_ORG_MIRROR="https://npm.taobao.org/mirrors/iojs"
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 # wget
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
@@ -23,22 +40,8 @@ export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
 # sqlite
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 
-# editors
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+# atom
 export ATOM_HOME="$XDG_DATA_HOME"/atom
-
-# python
-export PYTHONSTARTUP="$XDG_CACHE_HOME"/python-startup
-export PYTHON_EGG_CACHE="$XDG_CACHE_HOME"/python-eggs
-export PYLINTHOME="$XDG_CACHE_HOME"/pylint
-export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
-export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
-
-# node
-export NVM_DIR="$XDG_DATA_HOME"/nvm
-export NVM_NODEJS_ORG_MIRROR="https://npm.taobao.org/mirrors/node"
-export NVM_IOJS_ORG_MIRROR="https://npm.taobao.org/mirrors/iojs"
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 # aws
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config

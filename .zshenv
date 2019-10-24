@@ -30,6 +30,9 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 # docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 
+# ansible
+export ANSIBLE_CONFIG="$XDG_CONFIG_HOME"/ansible/ansible.cfg
+
 # ccache
 export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.config
 export CCACHE_DIR="$XDG_CACHE_HOME"/ccache

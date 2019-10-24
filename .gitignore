@@ -1,5 +1,6 @@
 
 zsh/alias.zsh
 zsh/local.zsh
-ohmyzsh/
-vim/plugins/
+
+ansible/
+

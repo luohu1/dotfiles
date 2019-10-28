@@ -41,9 +41,15 @@ call plug#begin('~/.local/share/vim/plugins')
     set softtabstop=4 " edit as if the tabs are 4 characters wide
     set shiftwidth=4 " number of spaces to use for indent and unindent
     set shiftround " round indent to a multiple of 'shiftwidth'
+    set expandtab "
 
-	" Load colorschemes
-	Plug 'tomasiser/vim-code-dark'
+    " toggle invisible characters
+    set list
+    set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+    set showbreak=↪
+
+    " Load colorschemes
+    Plug 'tomasiser/vim-code-dark'
 " }}}
 
 " General Functionality {{{
@@ -84,21 +90,33 @@ call plug#begin('~/.local/share/vim/plugins')
     " Asynchronous Lint Engine
     Plug 'w0rp/ale'
 
+    " Linting
+    let g:ale_lint_on_save = 1
+    let g:ale_linters = {
+    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \  'python': ['flake8', 'pep8'],
+    \}
+    " fixing
+    let g:ale_fix_on_save = 1
+    let g:ale_fixers = {
+    \   'python': ['yapf']
+    \}
     " Shell {{{
         " Plug 'w0rp/ale'
     " }}}
 
     " Python {{{
         Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+        Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' } " A formatter for Python files
     " }}}
 
     Plug 'vim-airline/vim-airline'
 
-	" Dockerfile
-	Plug 'ekalinin/Dockerfile.vim'
+    " Dockerfile
+    Plug 'ekalinin/Dockerfile.vim'
 
-	" Nginx
-	" Plug 'nginx/nginx', { 'rtp': 'contrib/vim' }
+    " Nginx
+    " Plug 'nginx/nginx', { 'rtp': 'contrib/vim' }
 " }}}
 
 call plug#end()

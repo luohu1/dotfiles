@@ -66,9 +66,9 @@ plugins=(
   python
   pip
   # pipenv
-  # nvm
-  # node
-  # npm
+  nvm
+  node
+  npm
   aws
   zsh-autosuggestions
   zsh-syntax-highlighting

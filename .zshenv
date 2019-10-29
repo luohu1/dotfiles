@@ -12,7 +12,7 @@ export HISTFILE="$XDG_CACHE_HOME"/zsh/history
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
 # python
-export PYTHONSTARTUP="$XDG_CACHE_HOME"/python-startup
+export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python-startup
 export PYTHON_EGG_CACHE="$XDG_CACHE_HOME"/python-eggs
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter

@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.dotfiles/ohmyzsh
+export ZSH=$HOME/.local/share/zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -45,7 +45,7 @@ CASE_SENSITIVE="true"
 HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$ZSH/custom
+ZSH_CUSTOM=$ZDOTDIR/custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -66,9 +66,9 @@ plugins=(
   python
   pip
   # pipenv
-  # nvm
-  # node
-  # npm
+  nvm
+  node
+  npm
   aws
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -112,6 +112,9 @@ export CFLAGS="-I/usr/local/opt/openssl/include"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.config/zsh/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="vim $ZDOTDIR/.zshrc"
+alias zshupdate="source $ZDOTDIR/.zshrc"
+alias zshenv="vim ~/.zshenv"
+alias zshalias="vim $ZDOTDIR/alias.zsh"
+alias ohmyzsh="vim $ZSH"
 

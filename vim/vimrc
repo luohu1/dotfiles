@@ -5,14 +5,14 @@ set backupdir=$XDG_DATA_HOME/vim/backup
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 
-if empty(glob('~/.dotfiles/vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.dotfiles/vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 source ~/.dotfiles/vim/autoload/plug.vim
-call plug#begin('~/.dotfiles/vim/plugins')
+call plug#begin('~/.local/share/vim/plugins')
 
 " General {{{
     abbr funciton function
@@ -41,6 +41,15 @@ call plug#begin('~/.dotfiles/vim/plugins')
     set softtabstop=4 " edit as if the tabs are 4 characters wide
     set shiftwidth=4 " number of spaces to use for indent and unindent
     set shiftround " round indent to a multiple of 'shiftwidth'
+    set expandtab "
+
+    " toggle invisible characters
+    set list
+    set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+    set showbreak=↪
+
+    " Load colorschemes
+    Plug 'tomasiser/vim-code-dark'
 " }}}
 
 " General Functionality {{{
@@ -81,21 +90,39 @@ call plug#begin('~/.dotfiles/vim/plugins')
     " Asynchronous Lint Engine
     Plug 'w0rp/ale'
 
+    " Linting
+    let g:ale_lint_on_save = 1
+    let g:ale_linters = {
+    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \  'python': ['flake8', 'pep8'],
+    \}
+    " fixing
+    let g:ale_fix_on_save = 1
+    let g:ale_fixers = {
+    \   'python': ['yapf']
+    \}
     " Shell {{{
         " Plug 'w0rp/ale'
     " }}}
 
     " Python {{{
         Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+        Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' } " A formatter for Python files
+    " }}}
+
+    " JavaScript {{{
+        Plug 'posva/vim-vue'
     " }}}
 
     Plug 'vim-airline/vim-airline'
 
-	" Dockerfile
-	Plug 'ekalinin/Dockerfile.vim'
+    " Dockerfile
+    Plug 'ekalinin/Dockerfile.vim'
 
-	" Nginx
-	Plug 'nginx/nginx', { 'rtp': 'contrib/vim' }
+    " Nginx
+    " Plug 'nginx/nginx', { 'rtp': 'contrib/vim' }
 " }}}
 
 call plug#end()
+
+colorscheme codedark

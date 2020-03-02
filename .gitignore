@@ -2,6 +2,6 @@
 zsh/alias.zsh
 zsh/local.zsh
 zsh/custom/
+zsh/.zsh_history
 
 ansible/
-

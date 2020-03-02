@@ -1,6 +1,7 @@
 
 zsh/alias.zsh
 zsh/local.zsh
+zsh/custom/
 
 ansible/
 

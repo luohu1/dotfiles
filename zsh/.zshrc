@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.local/share/zsh
+export ZSH="$HOME/.local/share/zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,28 +51,7 @@ ZSH_CUSTOM=$ZDOTDIR/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  autojump
-  # command-not-found
-  themes
-  brew
-  sudo
-  git
-  tmux
-  # docker
-  # docker-compose
-  # kubectl
-  # pyenv
-  python
-  pip
-  # pipenv
-  nvm
-  node
-  npm
-  aws
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
+. $ZDOTDIR/plugins.zsh
 
 # pyenv enable shims and autocompletion
 export PYENV_ROOT="/usr/local/var/pyenv"
@@ -112,9 +91,8 @@ export CFLAGS="-I/usr/local/opt/openssl/include"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+alias zshenv="vim ~/.zshenv"
 alias zshconfig="vim $ZDOTDIR/.zshrc"
 alias zshupdate="source $ZDOTDIR/.zshrc"
-alias zshenv="vim ~/.zshenv"
-alias zshalias="vim $ZDOTDIR/alias.zsh"
+alias zshalias="vim $ZDOTDIR/custom/alias.zsh"
 alias ohmyzsh="vim $ZSH"
-

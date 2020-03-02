@@ -51,12 +51,33 @@ ZSH_CUSTOM=$ZDOTDIR/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-. $ZDOTDIR/plugins.zsh
+plugins=(
+  autojump
+  # command-not-found
+  themes
+  brew
+  sudo
+  git
+  tmux
+  docker
+  docker-compose
+  kubectl
+  # pyenv
+  python
+  pip
+  pipenv
+  nvm
+  node
+  npm
+  aws
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
 # pyenv enable shims and autocompletion
 export PYENV_ROOT="/usr/local/var/pyenv"
 
-. $ZDOTDIR/local.zsh
+source $ZDOTDIR/local.zsh
 
 source $ZSH/oh-my-zsh.sh
 

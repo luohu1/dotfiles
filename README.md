@@ -6,10 +6,8 @@
 
 ```bash
 $ git clone https://github.com/luohu1/dotfiles.git ~/.dotfiles
-$ mkdir -p ~/.config ~/.cache ~/.local/bin ~/.local/share
-$ ln -s ~/.dotfiles/.zshenv ~/.zshenv
-$ ln -s ~/.dotfiles/zsh ~/.config/zsh
-$ ln -s ~/.dotfiles/vim ~/.config/vim
+$ cd ~/.dotfiles
+$ ./install
 ```
 
 

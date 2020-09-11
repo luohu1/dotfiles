@@ -75,7 +75,7 @@ plugins=(
 )
 
 # pyenv enable shims and autocompletion
-export PYENV_ROOT="/usr/local/var/pyenv"
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 
 source $ZDOTDIR/local.zsh
 

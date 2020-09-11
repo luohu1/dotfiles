@@ -1,0 +1,4 @@
+[submodule "libexec/dotbot"]
+	path = libexec/dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty

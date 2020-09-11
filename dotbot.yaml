@@ -1,0 +1,19 @@
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+
+- create:
+    - ~/.config
+    - ~/.local/bin
+    - ~/.local/share
+    - ~/.cache
+
+- link:
+    ~/.zshenv:
+      path: .zshenv
+      relink: true
+    ~/.config/zsh:
+      path: zsh
+      relink: true
+    ~/.config/vim:
+      path: vim
+      relink: true

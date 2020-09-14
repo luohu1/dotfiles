@@ -1,4 +1,5 @@
 # If you come from bash you might have to change your $PATH.
+typeset -U PATH
 export PATH=$HOME/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.

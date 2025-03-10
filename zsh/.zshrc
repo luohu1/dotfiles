@@ -1,6 +1,14 @@
+autoload -Uz compinit
+compinit
+
 # If you come from bash you might have to change your $PATH.
 typeset -U PATH
+export PATH=/opt/homebrew/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.virtualenvs/devtools/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
+export PATH=$MAVEN_HOME/bin:$JAVA_HOME/bin:$PATH
+export PATH=$GROOVY_HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.local/share/zsh"
@@ -60,10 +68,11 @@ plugins=(
   sudo
   git
   tmux
-  docker
-  docker-compose
+  # docker
+  # docker-compose
   kubectl
   helm
+  golang
   # pyenv
   python
   pip
@@ -102,10 +111,10 @@ export LANG=en_US.UTF-8
 # fi
 
 # Compilation flags
-export ARCHFLAGS="-arch x86_64"
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CFLAGS="-I/usr/local/opt/openssl/include"
-# export CPPFLAGS="-I$(brew --prefix openssl)/include"
+# export ARCHFLAGS="-arch x86_64"
+# export LDFLAGS="-L$(brew --prefix openssl@1.1)/lib"
+# export CFLAGS="-I$(brew --prefix openssl@1.1)/include"
+# export CPPFLAGS="-I$(brew --prefix openssl@1.1)/include"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -121,3 +130,7 @@ alias zshconfig="vim $ZDOTDIR/.zshrc"
 alias zshupdate="source $ZDOTDIR/.zshrc"
 alias zshalias="vim $ZDOTDIR/custom/alias.zsh"
 alias ohmyzsh="vim $ZSH"
+
+# export NVM_DIR="$HOME/.local/share/nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
